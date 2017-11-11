@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public static class Noise {
+public static class Noise{
+public GenerateNoiseMap 
 
 	public static float [,] GenerateNoiseMap(int mapWidth, int mapHeight, int seed, float scale, int octaves, float persistance, float lacunarity, Vector2 offset) {
 		float[,] noiseMap = new float[mapWidth, mapHeight];

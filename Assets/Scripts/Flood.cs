@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Flood : MonoBehaviour{
 	//Reference for map generator in scene
-	public MapGenerator mapGenerator; 
+	public MapGenerator mapGenerator;
 	public TerrainType deepWater;
 
     // deep water terrain from .3 to 1 
@@ -22,7 +22,7 @@ public class Flood : MonoBehaviour{
 		mapGenerator.regions[0].height = Mathf.Lerp(minimum, maximum, t);
 
         // .. and increate the t interpolater
-		t += (0.1f * Time.deltaTime); 
+		t += (0.009f * Time.deltaTime); 
 
         // now check if the interpolator has reached 1.0 AND if max > minimum to 
 		//only update map half the time 
@@ -32,13 +32,12 @@ public class Flood : MonoBehaviour{
         {
 			if (maximum > minimum) {
 				mapGenerator.seed = (int)Random.Range (-1000000f, 1000000f);
-				mapGenerator.noiseScale = (int)Random.Range (100f, 200f);
-				mapGenerator.persistance = (float)Random.Range (.3f,.5f);
-				mapGenerator.lacunarity = (float)Random.Range (2f,3f);
-				mapGenerator.offset.x = (float) Random.Range (-100f, 100f);
-				mapGenerator.offset.y = (float)Random.Range (-100f, 100f);
+				//mapGenerator.noiseScale = (int)Random.Range (50f, 150f);
+				//mapGenerator.persistance = (float)Random.Range (.25f,.5f);
+				//mapGenerator.lacunarity = (float)Random.Range (2f,3f);
+				//mapGenerator.offset.x = (float) Random.Range (-100f, 100f);
+				//mapGenerator.offset.y = (float)Random.Range (-100f, 100f);
 				//TODO: random persisance and lacunarity, offset
-				mapGenerator.GenerateMap ();
 				//print ("refresh \n");
 
 
