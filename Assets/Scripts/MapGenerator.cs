@@ -24,6 +24,15 @@ public class MapGenerator : MonoBehaviour
 
 	public TerrainType[] regions;
 
+	void Start(){
+		GenerateMap ();
+	}
+
+	void Update(){
+		//TODO Too much memory (I think) need to optimize
+		GenerateMap ();
+	}
+
 	public void GenerateMap() {
 		float[,] noiseMap = Noise.GenerateNoiseMap(mapWidth, mapHeight, seed, noiseScale, octaves, persistance, lacunarity, offset);
 

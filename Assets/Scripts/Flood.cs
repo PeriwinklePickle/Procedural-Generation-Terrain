@@ -8,11 +8,11 @@ public class Flood : MonoBehaviour{
 	public TerrainType deepWater;
 
     // deep water terrain from .3 to 1 
-    public float minimum = .3F;
-    public float maximum = 1.0F;
+    public float minimum = .3f;
+    public float maximum = 1.0f;
 
     // starting value for the Lerp
-    static float t = 0.0f;
+    static float t = 0.3f;
 
     void Update()
     {
@@ -22,7 +22,7 @@ public class Flood : MonoBehaviour{
 		mapGenerator.regions[0].height = Mathf.Lerp(minimum, maximum, t);
 
         // .. and increate the t interpolater
-		t += (0.1f * Time.deltaTime); 
+		t += (0.03f * Time.deltaTime); 
 
         // now check if the interpolator has reached 1.0 AND if max > minimum to 
 		//only update map half the time 
@@ -38,7 +38,6 @@ public class Flood : MonoBehaviour{
 				mapGenerator.offset.x = (float) Random.Range (-100f, 100f);
 				mapGenerator.offset.y = (float)Random.Range (-100f, 100f);
 				//TODO: random persisance and lacunarity, offset
-				mapGenerator.GenerateMap ();
 				//print ("refresh \n");
 
 
